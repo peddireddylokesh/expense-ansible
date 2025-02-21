@@ -3,7 +3,7 @@
   become: yes
   tasks:
   - name:  installing mysql libraries PyMySQL 2.7
-    packages:
+    package:
       name: 
         - PyMySQL
         - python3
