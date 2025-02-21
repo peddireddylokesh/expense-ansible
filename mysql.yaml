@@ -1,7 +1,7 @@
 - name: configure my sql server
   hosts: mysql
   become: yes
-  tasks: 
+  tasks:
   - name: installing mysql server
     ansible.builtin.package:
       name: mysql-server
@@ -15,7 +15,7 @@
     community.mysql.mysql_info:
       login_user: root
       login_password: ExpenseApp@1
-      logn_host: mysql.lokeshportfo.site
+      login_host: mysql.lokeshportfo.site
     register: mysql_info
   - name: print the output
     ansible.builtin.debug:
