@@ -9,7 +9,7 @@
         - python3
         - python3-pip
       state: present
-      executable: pip2.7
+      executable: pip3
 
   - name: installing mysql server
     ansible.builtin.package:
