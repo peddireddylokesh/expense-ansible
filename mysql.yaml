@@ -3,13 +3,9 @@
   become: yes
   tasks:
   - name:  installing mysql libraries PyMySQL 2.7
-    package:
-      name: 
-        - PyMySQL
-        - python3
-        - python3-pip
-      state: present
-      executable: pip3
+    ansible.builtin.pip:
+      name: PyMySQL
+      executable: pip3.9
 
   - name: installing mysql server
     ansible.builtin.package:
