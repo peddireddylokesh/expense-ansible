@@ -18,13 +18,13 @@
       state: started
       enabled: yes
 
-  - name: connect to mysql mysql-server
+  - name: connect to mysql server
     community.mysql.mysql_info:
       login_user: root
       login_password: ExpenseApp@1
       login_host: mysql.lokeshportfo.site
     register: mysql_info
-    ignore_unreachable: true
+    ignore_errors: true
     
   - name: print the output
     ansible.builtin.debug:
