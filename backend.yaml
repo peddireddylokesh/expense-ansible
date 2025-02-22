@@ -32,6 +32,11 @@
        dest: /app
        remote_src: yes
 
+    - name: install dependencies
+      community.general.npm:
+        name: install npm
+        path: /app
+
 
 
 
