@@ -2,41 +2,41 @@
   hosts: mysql
   become: yes
   tasks:
-  - name:  installing mysql libraries PyMySQL 3.9
-    ansible.builtin.pip:
-      name: PyMySQL
-      executable: pip3.9
+    - name:  install mysql libraries PyMySQL 3.9
+      ansible.builtin.pip:
+        name: PyMySQL
+        executable: pip3.9
 
-  - name: installing mysql server
-    ansible.builtin.package:
-      name: mysql-server
-      state: installed
+    - name: installing mysql server
+      ansible.builtin.package:
+        name: mysql-server
+        state: installed
 
-  - name: start and enable mysql-server
-    ansible.builtin.service:
-      name: mysqld
-      state: started
-      enabled: yes
+    - name: start and enable mysql-server
+      ansible.builtin.service:
+        name: mysqld
+        state: started
+        enabled: yes
 
-  - name: connect to mysql server
-    community.mysql.mysql_info:
-      login_user: root
-      login_password: ExpenseApp@1
-      login_host: mysql.lokeshportfo.site
-    register: mysql_info
-    ignore_errors: true
-    
-  - name: print the output
-    ansible.builtin.debug:
-      msg: "mysql info {{ mysql_info }}"
+    - name: connect to mysql server
+      community.mysql.mysql_info:
+        login_user: root
+        login_password: "ExpenseApp@1"
+        login_host: mysql.lokeshportfo.site
+      register: mysql_info
+      ignore_errors: true
+      
+    - name: print the output
+      ansible.builtin.debug:
+        msg: "mysql info {{ mysql_info }}"
 
-  - name: Setup MySQL root password
-  community.mysql.mysql_user:
-    name: root
-    password: "ExpenseApp@1"
-    login_host: "localhost"
-    login_user: root
-    login_password: "ExpenseApp@1"
-    state: present
-  when: mysql_info.failed is true
+    - name: Setup MySQL root password
+      community.mysql.mysql_user: 
+        name: root
+        password: "ExpenseApp@1"
+        login_host: "localhost"
+        login_user: root
+        login_password: "ExpenseApp@1"
+        state: present
+      when: mysql_info.failed is true
 
