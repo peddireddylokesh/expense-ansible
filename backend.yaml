@@ -34,7 +34,6 @@
 
     - name: install dependencies
       community.general.npm:
-        name: install npm
         path: /app
 
 
