@@ -46,8 +46,8 @@
         src: backend.service
         dest: /etc/systemd/system/backend.service
 
-    - name: import mysql db data
-      community.mysql.mysq_db:
+    - name: import mysql data
+      community.mysql.mysql_db:
         status: import
         name: all
         login_user: root
