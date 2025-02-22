@@ -30,7 +30,13 @@
     ansible.builtin.debug:
       msg: "mysql info {{ mysql_info }}"
 
-  - name: setup root password
-    ansible.builtin.debug: " mysql_secure_installation --set-root-pass ExpenseApp@1 "
-    when: mysql_info.failed is true
-  
+  - name: Setup MySQL root password
+  community.mysql.mysql_user:
+    name: root
+    password: "ExpenseApp@1"
+    login_host: "localhost"
+    login_user: root
+    login_password: "ExpenseApp@1"
+    state: present
+  when: mysql_info.failed is true
+
