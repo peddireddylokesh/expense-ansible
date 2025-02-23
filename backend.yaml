@@ -48,7 +48,7 @@
 
     - name: import mysql data
       community.mysql.mysql_db:
-        status: import
+        state: import
         name: all
         login_user: root
         login_password: ExppenseApp@1
