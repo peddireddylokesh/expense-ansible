@@ -10,7 +10,7 @@
     - name: enable and start nginx service
       ansible.builtin.systemd_service:
         name: nginx
-        state: enable
+        state: started
         enabled: yes
 
     - name: removing old html content in directory
