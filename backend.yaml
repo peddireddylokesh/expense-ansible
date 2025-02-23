@@ -53,11 +53,11 @@
 
     - name: import mysql data
       community.mysql.mysql_db:
+        login_host: mysql.lokeshportfo.site
+        login_user: root
+        login_password: ExpenseApp@1
         state: import 
         name: all
-        login_user: root
-        login_password: ExppenseApp@1
-        login_host: mysql.lokeshportfo.site
         target: /app/schema/backend.sql
 
 
