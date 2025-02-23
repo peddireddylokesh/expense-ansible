@@ -10,15 +10,19 @@
     
     - name: install nodejs
       ansible.builtin.package: 
-      ansible.builtin.pip:
         name: "{{ item }}"
         state: present
-        executable: pip2.7
       loop: 
       - nodejs
       - mysql
-      - PyMySQL
+      
+    - name:  install mysql libraries PyMySQL 3.9
+      ansible.builtin.pip:
+        name: "{{ item }}"
+        executable: pip3.9
+      loop: 
       - cryptography
+      - PyMySQL
 
 
     - name: add expense user
