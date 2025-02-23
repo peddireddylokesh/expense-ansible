@@ -36,7 +36,7 @@
 
     - name: copy frontend service
       ansible.builtin.copy:
-        src: frontend.service
+        src: expense.conf
         dest: /etc/nginx/default.d/expense.conf
 
     - name: restarting nginx service
@@ -44,4 +44,4 @@
         enabled: true 
         state: restarted
         daemon_reload: true
-        name: frntend
+        name: frontend
