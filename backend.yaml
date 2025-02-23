@@ -66,3 +66,11 @@
     - name: restart module
       ansible.builtin.reboot:
         msg: "rebooting machine in 5-sec"
+
+    - name: demon Reload and restarting service
+      ansible.builtin.systemd_service:
+         name: backend
+         state: restarted
+         daemon_reload: true
+         enable: true
+         
